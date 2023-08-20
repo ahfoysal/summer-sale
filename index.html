@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title and fav icon -->
+    <title>My Cart</title>
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon" />
+    <!-- Google Font: Work Sans: 400,500,600,700,800,900 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind and daisy-ui cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.4.0/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Config Script -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              heroPrimary: "#E527B2",
+              "light-pink": "#FBC0A8",
+              heroGray: "rgba(18,18,18,0.60)",
+              "hero-light-gray": "rgba(18,18,18,0.10)",
+            },
+          },
+          backgroundSize: {
+            "hero-full": "100%",
+          },
+        },
+      };
+    </script>
+    <!-- Font Awesome cdn -->
+    <script
+      src="https://kit.fontawesome.com/c33dfe6377.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        font-family: "Work Sans", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      .dropdown .dropdown-content {
+        position: absolute;
+        right: 0 !important;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body class="bg-stone-50">
+    <!-- Header Start Here -->
+    <!-- Sidebar -->
+    <div class="drawer">
+      <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+
+      <div class="drawer-side z-50">
+        <label for="my-drawer" class="drawer-overlay"></label>
+
+        <ul
+          tabindex="0"
+          class="menu bg-base-200 flex flex-col gap-4 h-full px-8 lg:hidden py-5 text-neutral-950 z-[1] p-2"
+        >
+          <li><a href="#home">Home</a></li>
+          <li><a href="#shop">Shop</a></li>
+
+          <li><a href="#team">About Us</a></li>
+          <li><a href="#cart" id="cart-text" class="cart-text">Cart</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Main Header -->
+    <header class="lg:bg-heroPrimary">
+      <div
+        id="home"
+        class="container mx-auto navbar justify-between md:pr-8 xl:px-12 text-neutral-950 lg:text-white"
+      >
+        <!-- Only for Desktop Nac -->
+        <div class="navbar-start w-full lg:w-fit justify-between px-4 py-8">
+          <!-- desktop and mobile logo container -->
+          <div class="flex gap-3 items-center">
+            <!-- <img
+              src="images/logo.png"
+              class="w-10 h-10 lg:w-12 lg:h-14"
+              alt=""
+            /> -->
+            <p class="normal-case text-3xl lg:text-4xl font-bold">My Cart</p>
+          </div>
+          <div class="dropdown">
+            <!-- Nav Hamburger -->
+            <label
+              tabindex="0"
+              for="my-drawer"
+              class="btn btn-ghost lg:hidden items-center"
+            >
+              <i
+                class="fa-solid fa-bars text-2xl lg:text-white text-neutral-950"
+              ></i>
+            </label>
+          </div>
+        </div>
+        <div class="navbar-end hidden lg:flex">
+          <ul
+            class="menu menu-horizontal xl:px-1 xl:text-lg text-base font-medium"
+          >
+            <li class="divide-y divide-dashed"><a href="#home">Home</a></li>
+            <li class="divide-y divide-dashed"><a href="#shop">Shop</a></li>
+            <li class="divide-y divide-dashed">
+              <a href="#cart" class="cart-text" id="cart-text"
+                >Cart
+                <div class="badge hidden" id="cart-count"></div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main  Start Here -->
+    <main class="lg:w-full w-[92%] text-neutral-950">
+      <!-- Hero section start here -->
+      <div
+        class="flex md:flex-row flex-col items-center justify-center bg-[#F9F6E2] py-20"
+      >
+        <div class="flex-1 text-center w-full mx-auto">
+          <h2 class="text-3xl font-medium">---SALE FEVER---</h2>
+
+          <h1
+            class="text-5xl mt-10 font-bold lg:w-[600px] md:w-[500px] w-[80%] mx-auto"
+          >
+            Purchase TK 200 or above & get
+            <span class="text-pink-500 font-bold">20% off </span>
+          </h1>
+
+          <div class="flex mt-20 justify-center gap-3 items-center">
+            <h3 class="text-lg font-medium">Use Promo Code</h3>
+            <button
+              class="bg-heroPrimary text-white px-7 py-2.5 rounded-xl text-lg font-semibold"
+            >
+              SELL200
+            </button>
+          </div>
+        </div>
+        <div class="flex-1">
+          <img src="images/Summer 1.png" alt="" />
+        </div>
+      </div>
+      <!-- Product grid start here -->
+      <section id="shop" class="container mx-auto mt-6 lg:mt-28 md:mt-32">
+        <div class="sm:flex-row flex-col flex gap-4 mb-8 relative">
+          <div class="sm:w-3/4 w-full">
+            <div class="">
+              <div class="text-center lg:text-left">
+                <h3
+                  class="text-neutral-900 md:text-4xl text-3xl font-extrabold mb-6"
+                >
+                  Kitchenware
+                </h3>
+              </div>
+              <div
+                class="cursor-pointer grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 grid-cols-1 gap-4 mt-12 px-5 lg:px-0"
+              >
+                <div
+                  onclick="addToCart('K. Accessories', 39.00)"
+                  class="flex flex-col gap-3 h-fit rounded-lg bg-white border border-neutral-900 border-opacity-10 justify-center items-center text-center px-2.5 lg:px-2.5 py-2.5 lg:py-4"
+                >
+                  <figure class="bg-stone-50 w-full">
+                    <img
+                      src="images/prod1.png"
+                      class="w-[106px] h-[130px] m-auto py-2.5 lg:py-4"
+                      alt="product"
+                    />
+                  </figure>
+
+                  <div
+                    class="flex justify-center gap-0.5 lg:justify-center w-full text-base text-yellow-400"
+                  >
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <p
+                    class="text-heroGray font-semibold text-xl text-neutral-950"
+                  >
+                    K. Accessories
+                  </p>
+
+                  <h2 class="text-base text-heroGray mb-1">39.00 TK</h2>
+
+                  <button
+                    class="bg-heroPrimary text-white px-4 py-1 rounded-lg text-lg font-semibold"
+                  >
+                    Add To Cart
+                  </button>
+                </div>
+                <div
+                  onclick="addToCart('Cleaner', 25.00)"
+                  class="flex flex-col gap-3 h-fit rounded-lg bg-white border border-neutral-900 border-opacity-10 justify-center items-center text-center px-2.5 lg:px-2.5 py-2.5 lg:py-4"
+                >
+                  <figure class="bg-stone-50 w-full">
+                    <img
+                      src="images/prod2.png"
+                      class="w-[106px] h-[130px] m-auto py-2.5 lg:py-4"
+                      alt="product"
+                    />
+                  </figure>
+
+                  <div
+                    class="flex justify-center gap-0.5 lg:justify-center w-full text-base text-yellow-400"
+                  >
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <p
+                    class="text-heroGray font-semibold text-xl text-neutral-950"
+                  >
+                    Cleaner
+                  </p>
+
+                  <h2 class="text-base text-heroGray mb-1">25.00 TK</h2>
+
+                  <button
+                    class="bg-heroPrimary text-white px-4 py-1 rounded-lg text-lg font-semibold"
+                  >
+                    Add To Cart
+                  </button>
+                </div>
+                <div
+                  onclick="addToCart('Home Cooker', 49.00)"
+                  class="flex flex-col gap-3 h-fit rounded-lg bg-white border border-neutral-900 border-opacity-10 justify-center items-center text-center px-2.5 lg:px-2.5 py-2.5 lg:py-4"
+                >
+                  <figure class="bg-stone-50 w-full">
+                    <img
+                      src="images/prod3.png"
+                      class="w-[106px] h-[130px] m-auto py-2.5 lg:py-4"
+                      alt="product"
+                    />
+                  </figure>
+
+                  <div
+                    class="flex justify-center gap-0.5 lg:justify-center w-full text-base text-yellow-400"
+                  >
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <p
+                    class="text-heroGray font-semibold text-xl text-neutral-950"
+                  >
+                    Home Cooker
+                  </p>
+
+                  <h2 class="text-base text-heroGray mb-1">49.00 TK</h2>
+
+                  <button
+                    class="bg-heroPrimary text-white px-4 py-1 rounded-lg text-lg font-semibold"
+                  >
+                    Add To Cart
+                  </button>
+                </div>
+              </div>
+
+              <div class="text-center lg:text-left">
+                <h3
+                  class="text-neutral-900 md:text-4xl text-3xl font-extrabold my-8"
+                >
+                  Sportswear
+                </h3>
+              </div>
+              <div
+                class="cursor-pointer grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 grid-cols-1 gap-5 mt-12 px-5 lg:px-0"
+              >
+                <div
+                  onclick="addToCart('Sports Back Cap', 49.00)"
+                  class="flex flex-col gap-3 h-fit rounded-lg bg-white border border-neutral-900 border-opacity-10 justify-center items-center text-center px-2.5 lg:px-2.5 py-2.5 lg:py-4"
+                >
+                  <figure class="bg-stone-50 w-full">
+                    <img
+                      src="images/prod4.png"
+                      class="w-[106px] h-[130px] m-auto py-2.5 lg:py-4"
+                      alt="product"
+                    />
+                  </figure>
+
+                  <div
+                    class="flex justify-center gap-0.5 lg:justify-center w-full text-base text-yellow-400"
+                  >
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <p
+                    class="text-heroGray font-semibold text-xl text-neutral-950"
+                  >
+                    Sports Back Cap
+                  </p>
+
+                  <h2 class="text-base text-heroGray mb-1">49.00 TK</h2>
+
+                  <button
+                    class="bg-heroPrimary text-white px-4 py-1 rounded-lg text-lg font-semibold"
+                  >
+                    Add To Cart
+                  </button>
+                </div>
+                <div
+                  onclick="addToCart('Sports cates', 69.00)"
+                  class="flex flex-col gap-3 h-fit rounded-lg bg-white border border-neutral-900 border-opacity-10 justify-center items-center text-center px-2.5 lg:px-2.5 py-2.5 lg:py-4"
+                >
+                  <figure class="bg-stone-50 w-full">
+                    <img
+                      src="images/prod5.png"
+                      class="w-[106px] h-[130px] m-auto py-2.5 lg:py-4"
+                      alt="product"
+                    />
+                  </figure>
+
+                  <div
+                    class="flex justify-center gap-0.5 lg:justify-center w-full text-base text-yellow-400"
+                  >
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <p
+                    class="text-heroGray font-semibold text-xl text-neutral-950"
+                  >
+                    Sports cates
+                  </p>
+
+                  <h2 class="text-base text-heroGray mb-1">69.00 TK</h2>
+
+                  <button
+                    class="bg-heroPrimary text-white px-4 py-1 rounded-lg text-lg font-semibold"
+                  >
+                    Add To Cart
+                  </button>
+                </div>
+                <div
+                  onclick="addToCart('Sports cates', 159.00)"
+                  class="flex flex-col gap-3 h-fit rounded-lg bg-white border border-neutral-900 border-opacity-10 justify-center items-center text-center px-2.5 lg:px-2.5 py-2.5 lg:py-4"
+                >
+                  <figure class="bg-stone-50 w-full">
+                    <img
+                      src="images/prod6.png"
+                      class="w-[106px] h-[130px] m-auto py-2.5 lg:py-4"
+                      alt="product"
+                    />
+                  </figure>
+
+                  <div
+                    class="flex justify-center gap-0.5 lg:justify-center w-full text-base text-yellow-400"
+                  >
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <p
+                    class="text-heroGray font-semibold text-xl text-neutral-950"
+                  >
+                    Sports cates
+                  </p>
+
+                  <h2 class="text-base text-heroGray mb-1">159.00 TK</h2>
+
+                  <button
+                    class="bg-heroPrimary text-white px-4 py-1 rounded-lg text-lg font-semibold"
+                  >
+                    Add To Cart
+                  </button>
+                </div>
+              </div>
+              <div class="flex justify-center mt-10" id="show-more">
+                <button
+                  onclick="showMore()"
+                  class="bg-heroPrimary text-white px-7 py-2.5 rounded-xl text-lg font-semibold"
+                >
+                  Show More
+                </button>
+              </div>
+              <div class="hidden" id="hidden">
+                <div class="text-center lg:text-left">
+                  <h3
+                    class="text-neutral-900 md:text-4xl text-3xl font-extrabold my-8"
+                  >
+                    Furniture
+                  </h3>
+                </div>
+                <div
+                  class="cursor-pointer grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 grid-cols-1 gap-5 mt-12 px-5 lg:px-0"
+                >
+                  <div
+                    onclick="addToCart('Single Relax Chair', 185.00)"
+                    class="flex flex-col gap-3 h-fit rounded-lg bg-white border border-neutral-900 border-opacity-10 justify-center items-center text-center px-2.5 lg:px-2.5 py-2.5 lg:py-4"
+                  >
+                    <figure class="bg-stone-50 w-full">
+                      <img
+                        src="images/prod1.png"
+                        class="w-[106px] h-[130px] m-auto py-2.5 lg:py-4"
+                        alt="product"
+                      />
+                    </figure>
+
+                    <div
+                      class="flex justify-center gap-0.5 lg:justify-center w-full text-base text-yellow-400"
+                    >
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                    </div>
+                    <p
+                      class="text-heroGray font-semibold text-xl text-neutral-950"
+                    >
+                      Single Relax Chair
+                    </p>
+
+                    <h2 class="text-base text-heroGray mb-1">185.00 TK</h2>
+
+                    <button
+                      class="bg-heroPrimary text-white px-4 py-1 rounded-lg text-lg font-semibold"
+                    >
+                      Add To Cart
+                    </button>
+                  </div>
+                  <div
+                    onclick="addToCart('Children play', 299.00)"
+                    class="flex flex-col gap-3 h-fit rounded-lg bg-white border border-neutral-900 border-opacity-10 justify-center items-center text-center px-2.5 lg:px-2.5 py-2.5 lg:py-4"
+                  >
+                    <figure class="bg-stone-50 w-full">
+                      <img
+                        src="images/prod8.png"
+                        class="w-[106px] h-[130px] m-auto py-2.5 lg:py-4"
+                        alt="product"
+                      />
+                    </figure>
+
+                    <div
+                      class="flex justify-center gap-0.5 lg:justify-center w-full text-base text-yellow-400"
+                    >
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p
+                      class="text-heroGray font-semibold text-xl text-neutral-950"
+                    >
+                      Children play
+                    </p>
+
+                    <h2 class="text-base text-heroGray mb-1">299.00 TK</h2>
+
+                    <button
+                      class="bg-heroPrimary text-white px-4 py-1 rounded-lg text-lg font-semibold"
+                    >
+                      Add To Cart
+                    </button>
+                  </div>
+                  <div
+                    onclick="addToCart('Flexible Sofa', 339.00)"
+                    class="flex flex-col gap-3 h-fit rounded-lg bg-white border border-neutral-900 border-opacity-10 justify-center items-center text-center px-2.5 lg:px-2.5 py-2.5 lg:py-4"
+                  >
+                    <figure class="bg-stone-50 w-full">
+                      <img
+                        src="images/prod3.png"
+                        class="w-[106px] h-[130px] m-auto py-2.5 lg:py-4"
+                        alt="product"
+                      />
+                    </figure>
+
+                    <div
+                      class="flex justify-center gap-0.5 lg:justify-center w-full text-base text-yellow-400"
+                    >
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p
+                      class="text-heroGray font-semibold text-xl text-neutral-950"
+                    >
+                      Flexible Sofa
+                    </p>
+
+                    <h2 class="text-base text-heroGray mb-1">339.00 TK</h2>
+
+                    <button
+                      class="bg-heroPrimary text-white px-4 py-1 rounded-lg text-lg font-semibold"
+                    >
+                      Add To Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sm:w-1/4 w-full relative">
+            <div class="md:sticky top-20 static">
+              <div class="bg-white p-6 h-fit rounded-md mt-24">
+                <p class="font-semibold">Have coupon?</p>
+
+                <div
+                  class="bg-white rounded-lg flex justify-center items-center mt-4"
+                >
+                  <input
+                    class="w-full p-2 border border-r-0 h-full border-gray-300 bg-transparent focus:outline-none text-neutral-950 rounded-l-lg"
+                    placeholder="Coupon Code"
+                    id="coupon"
+                  />
+                  <button
+                    onclick="couponSubmit()"
+                    class="bg-heroPrimary h-full rounded-r-lg p-2 text-center text-sm w-[30%] text-white"
+                  >
+                    Apply
+                  </button>
+                </div>
+                <div id="error"></div>
+              </div>
+              <div class="bg-white p-6 h-fit rounded-md mt-6 relative">
+                <div class="" id="cart">
+                  <p id="empty" class="text-red-500 text-xl font-bold">
+                    Your Cart Is Empty Now.
+                  </p>
+                </div>
+                <div class="divider"></div>
+                <div class="text-neutral-900 text-lg font-medium">
+                  <p>
+                    Total price:
+                    <span id="total-price" class="text-heroGray"> 0.00</span>
+                    <span class="text-heroGray"> TK </span>
+                  </p>
+                  <p class="flex gap-1 items-center" id="discountContainer">
+                    Discount :
+                    <span id="discount" class="text-heroGray">0.00</span>
+                    <span class="text-heroGray"> TK </span>
+                    <button
+                      class="btn btn-xs text-white btn-success hidden"
+                      id="couponName"
+                    ></button>
+                  </p>
+                  <p>
+                    Total: <span id="total" class="text-heroGray">00.00</span>
+                    <span class="text-heroGray"> TK </span>
+                  </p>
+                </div>
+                <div class="divider"></div>
+                <div
+                  class="absolute bottom-0 inset-x-0 transform translate-y-1/2 flex justify-center"
+                >
+                  <button
+                    onclick="success.showModal()"
+                    class="bg-heroPrimary text-white px-7 py-2.5 rounded-xl text-lg font-semibold"
+                  >
+                    Make Purchase
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- MOdal -->
+      <dialog
+        id="success"
+        class="container mx-auto modal modal-bottom sm:modal-middle"
+      >
+        <form method="dialog" class="modal-box">
+          <div
+            class="flex flex-col rounded-md justify-center items-center text-center px-12 py-8"
+          >
+            <figure>
+              <img src="images/congo.png" alt="product" />
+            </figure>
+
+            <h2 class="text-2xl font-extrabold mb-4">Congratulations</h2>
+            <p class="text-heroGray font-medium">Your Purchase the product.</p>
+          </div>
+
+          <div class="modal-action py-0 justify-center">
+            <button
+              onclick="clearTheCart()"
+              class="bg-heroPrimary text-white px-7 py-2.5 rounded-xl text-lg font-bold"
+            >
+              Go Home
+            </button>
+          </div>
+        </form>
+      </dialog>
+    </main>
+    <script src="scripts/utilities.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
